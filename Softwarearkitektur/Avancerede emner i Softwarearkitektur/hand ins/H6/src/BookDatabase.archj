@@ -1,0 +1,24 @@
+package dk.saip;
+
+public component class BookDatabase {
+
+    // Port to local Book database
+    public port books {
+        provides boolean searchBook(String keyword);
+        provides String getBook(String keyword);
+        provides void addBook(String book);
+    }
+
+    public boolean searchBook(String keyword) {
+        // Search database for books with keyword...
+    }
+
+    public String getBook(String keyword) {
+        // Retrieve book from database with keyword...
+    }
+
+    public void addBook(String book) {
+        // Add book to database...
+    }
+
+}

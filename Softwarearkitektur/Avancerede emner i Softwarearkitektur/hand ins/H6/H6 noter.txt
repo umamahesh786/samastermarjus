@@ -1,0 +1,56 @@
+H6
+
+5: Arcihtectural reconstriuction
+
+• Explain the Symphony process and how it would apply to this case. No formal
+architectural documentation exists currently
+
+What is the problem
+What kind of information is needed to solve the problem
+Extract the data from source views
+Abstract over data og lav target views
+Present løsning basseret på target views
+
+i det konkrete system:
+Find et problem som skal løses: der mangler dokumentation for arkitekturen som benytter netværkskommunikation for at kunne udskifte denne med C++
+Data der skal være til stede: Module view om identifikation af hvilke moduler og klasser der benytter netværk, C&C view om hvordan netværk benyttes samt allocation view hvorledes de forskellige komponenter er distribueret
+
+Sorce view extraction, fra fysiske filer, statisk og ved manuel kodeanalyse, runtime analyse debugger/trace, feks. network sniffer evt undersøge brugen af netværk for eks. chatty kommunikation
+target views genereres ved at abstrahere over den information som er fremkommet fra source view (overvej målbarhed om det er et krav)
+Hypothetical view Wrap up info og præsenter impact af udskiftning af netværkskomponenter. Herunder dokumentationen af arkitekturen inkl. sammenhængende arkitekturbeskrivelse og sammenhængen imellem forskellige target views.
+
+
+
+
+• What kinds of source views, target view, and hypothetical views would there be
+in this case? How could they be obtained?
+
+source view
+lexical analysis of code files 
+Trace output fra eksekvering af system
+	Netværksprofileringsoutput
+	Call graph/probes
+kort design decision beskrivelse, f.eks. c++ blandet med Java., feks. wiki/dokument/repository-datamining
+Buildfile examination view
+	extract allocation information
+	Dependency injection/configuration/
+	
+
+Target views
+Module viewpoint 
+allocation viewpoint
+C&C viewpoint 
+	Sekvensdiagrammer
+Tyree & akerman skemaer for design decisions
+stilarter
+
+Hypothetical view
+eksisterende dokumentation  for kode, arkitektur, præsentation
+
+Aggregeret arkitekturdokumentation inklusiv styles/patterns, evt tactics hvis de kan udledes
+
+
+• What would a typical UML tool reverse engineer the prototype into? What would
+be missing?
+Rational, Magicdraw, Visio
+• What information would be needed to reconstruct requirements or design decisions?

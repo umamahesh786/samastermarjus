@@ -1,0 +1,23 @@
+package dk.saip;
+
+public component class PeerRegistry {
+
+    // Port to PeerRegistry
+    public port registry {
+        provides void register(server peer);
+        provides server[] getPeers();
+    }
+
+    private Collection <server> peers = new LinkedList<server>();
+	
+
+
+    public void register(server peer) {
+        peers.add(peer);
+    }
+
+    public server[] getPeers() {
+        return peers.toArray();
+    }    
+
+}

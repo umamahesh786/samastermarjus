@@ -1,0 +1,30 @@
+<html>
+	<head>
+		<title>Prototype</title>
+		
+		<script language="javascript" type="text/javascript" src="prototype.js"></script>
+		
+		<script type="text/javascript">        
+		    function updateDoc() {
+				var t = document.getElementById("input").value;
+			
+		         var url = 'http://localhost/WAU/recho.php';
+		         var pars = 'input='+t;
+		         var target = 'ajax_div';
+		         var prototype = new Ajax.Updater(target, url, {method:'get', parameters:pars});
+		    }
+		</script>
+		
+	</head>
+	<body>
+
+	<form name="form1" method="post" action="">
+	  <label>Tekst
+	  <input type="text" name="input" id="input"  onkeyup="javascript: updateDoc();">
+	  </label>
+	</form>
+
+	<div id="ajax_div" style="border:solid thin; width: 200px;">...</div>
+	
+	</body>
+</html>

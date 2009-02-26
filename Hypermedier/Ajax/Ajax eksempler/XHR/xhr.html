@@ -1,0 +1,69 @@
+<html>
+<head>
+<title>XHR</title>
+
+<script language="javascript">
+			var xhr;
+
+function updateDoc() {
+	var t = document.getElementById("input").value;
+	loadXMLDoc('GET','http://localhost/WAU/recho.php', true, '?input='+t, handleResponse);
+}
+
+function loadXMLDoc(xhrType, url, async , payload, respHandle) {
+  xhr = false;
+  // branch for native XMLHttpxhruest object
+
+  // branch for native XMLHttpRequest object
+    if(window.XMLHttpRequest && !(window.ActiveXObject)) {
+    	try {
+			xhr = new XMLHttpRequest();
+        } catch(e) {
+			xhr = false;
+        }
+    // branch for IE/Windows ActiveX version
+    } else if(window.ActiveXObject) {
+       	try {
+        	xhr = new ActiveXObject("Msxml2.XMLHTTP");
+      	} catch(e) {
+        	try {
+          		xhr = new ActiveXObject("Microsoft.XMLHTTP");
+        	} catch(e) {
+          		xhr = false;
+        	}
+		}
+    }
+
+   if(xhr) {
+     xhr.onreadystatechange = respHandle;
+	 xhr.overrideMimeType('text/html');
+     xhr.open(xhrType, url+payload, async);
+     xhr.send(null);
+   }
+}
+			
+function handleResponse() {
+	if (xhr.readyState == 4){
+		if(xhr.status == 200){
+			// xml = xhr.responseXML; // get xml string
+			txt = xhr.responseText;
+			document.getElementById('ajax_div').innerHTML = txt;
+		}
+	}
+}
+
+			
+</script>
+</head>
+
+<body>
+<form name="form1" method="post" action="">
+  <label>Tekst
+  <input type="text" name="input" id="input"  onkeyup="javascript: updateDoc();">
+  </label>
+</form>
+
+<div id="ajax_div" style="border:solid thin; width: 200px;">...</div>
+
+</body>
+</html>
