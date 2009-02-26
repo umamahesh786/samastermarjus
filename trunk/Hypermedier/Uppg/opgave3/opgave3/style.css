@@ -1,0 +1,80 @@
+div.container {
+	width: 100%;
+}
+
+div.header {
+	background-color: #CC9966;
+	width: 100%;
+	padding-top: 5px;
+	padding-bottom: 5px;
+	text-align: center;
+	font-family: Geneva, Arial, Helvetica, sans-serif;
+}
+
+div.posts {
+	width: 80%;
+	background-color: #FFFFFF;
+	float: left;
+}
+
+div.menu {
+	width: 20%;
+	background-color: #CCCCCC;
+	float: right;
+}
+
+ul.menulist {
+	font-family: Geneva, Arial, Helvetica, sans-serif;
+	font-size: 14px;
+	list-style-type: none;
+	padding-left: 10px;
+	padding-right: 10px;
+}
+
+ul.menusublist {
+	font-family: Geneva, Arial, Helvetica, sans-serif;
+	font-size: 12px;
+	list-style-type: none;
+	padding-left: 15px;
+	padding-right: 10px;
+}
+
+p.postheader {
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size: 24px;
+	margin-bottom: 4px;
+}
+
+p.postmetaheader {
+	font-family: "Courier New", Courier, monospace;
+	font-size: 12px;
+	margin-top: 0px;
+	margin-bottom: 0px;
+}
+
+p.postbody {
+	margin-top: 4px;
+	margin-right: 10px;
+}
+
+p.commentheader {
+	font-family: "Courier New", Courier, monospace;
+	font-size: 12px;
+	margin-top: 0px;
+	margin-bottom: 0px;
+}
+
+p.commentbody {
+	margin-top: 4px;
+	margin-right: 10px;
+}
+
+body {
+	margin-left: 5%;
+	margin-right: 5%;
+}
+
+a {
+	text-decoration: none;
+	color: #0066FF;
+}

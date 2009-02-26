@@ -1,0 +1,92 @@
+CREATE TABLE IF NOT EXISTS oResource 
+(
+  ResourceId INT NOT NULL AUTO_INCREMENT,
+  Title VARCHAR(100), 
+  PRIMARY KEY(ResourceId)
+) ENGINE=INNODB;
+
+CREATE TABLE IF NOT EXISTS oRecipe
+(
+  RecipeId INT NOT NULL,
+  Description VARCHAR(300),
+  Directions TEXT,
+  CookingTime varchar(16),
+  PRIMARY KEY(RecipeId),
+  FOREIGN KEY(RecipeId) REFERENCES oResource(ResourceId)
+    ON DELETE CASCADE
+) ENGINE=INNODB;
+
+CREATE TABLE IF NOT EXISTS oTag
+(
+  TagId INT NOT NULL,
+  Type ENUM('ingredient', 'dictionary', 'shop-info', 'general'),
+  PRIMARY KEY(TagId),
+  FOREIGN KEY(TagId) REFERENCES oResource(ResourceId)
+    ON DELETE CASCADE
+) ENGINE=INNODB;
+
+CREATE TABLE IF NOT EXISTS oResourceTag
+(
+  ResourceId INT NOT NULL,
+  TagId INT NOT NULL,
+  Count INT NOT NULL,
+  PRIMARY KEY(ResourceId, TagId),
+  FOREIGN KEY(ResourceId) REFERENCES oResource(ResourceId),
+  FOREIGN KEY(TagId) REFERENCES oTag(TagId)
+) ENGINE=INNODB;
+
+CREATE TABLE IF NOT EXISTS oComment
+(
+  CommentId INT NOT NULL AUTO_INCREMENT,
+  Commment varchar(1000) NOT NULL,
+  RecipeId INT NOT NULL,
+  PRIMARY KEY(CommentId),
+  FOREIGN KEY(RecipeId) REFERENCES oRecipe(RecipeId)
+) ENGINE=INNODB;
+
+CREATE TABLE IF NOT EXISTS oRating
+(
+  RatingId INT NOT NULL AUTO_INCREMENT,
+  RecipeId INT NOT NULL,
+  Rating TINYINT NOT NULL,
+  PRIMARY KEY(RatingId),
+  FOREIGN KEY(RecipeId) REFERENCES oRecipe(RecipeId)
+) ENGINE=INNODB;
+
+CREATE TABLE IF NOT EXISTS oIngredient
+(
+  IngredientId INT NOT NULL AUTO_INCREMENT,
+  Ingredient varchar(128),
+  PRIMARY KEY(IngredientId)  
+) ENGINE=INNODB;
+
+CREATE TABLE IF NOT EXISTS oRecipeIngredient
+(
+  RecipeIngredientId INT NOT NULL AUTO_INCREMENT,
+  IngredientId INT NOT NULL,
+  RecipeId INT NOT NULL,
+  Quantity varchar(16),
+  Unit varchar(16),
+  PRIMARY KEY(RecipeIngredientId),
+  FOREIGN KEY(RecipeId) REFERENCES oRecipe(RecipeId),
+  FOREIGN KEY(IngredientId) REFERENCES oIngredient(IngredientId)  
+) ENGINE=INNODB;
+
+CREATE TABLE IF NOT EXISTS oUser
+(
+  UserId INT NOT NULL AUTO_INCREMENT,
+  Name varchar(128),
+  Password varchar(128),
+  PRIMARY KEY(UserId)  
+) ENGINE=INNODB;
+
+CREATE TABLE IF NOT EXISTS oFavourite
+(
+  RecipeId INT NOT NULL,
+  UserId INT NOT NULL,  
+  PRIMARY KEY(RecipeId, UserId),
+  FOREIGN KEY(RecipeId) REFERENCES oRecipe(RecipeId),
+  FOREIGN KEY(UserId) REFERENCES oUser(UserId)  
+) ENGINE=INNODB;
+
+

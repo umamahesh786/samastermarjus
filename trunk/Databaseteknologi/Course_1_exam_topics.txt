@@ -1,0 +1,67 @@
+DMBS eksamia
+
+1. Relational algebra
+	Relational data model
+	Operators (select, project, Crossproduct)
+	Joins
+
+2. SQL
+	SQL's data model
+	DDL, DML
+	Subquery and operators
+		any, all, in exists
+	NULL values
+	Views
+
+3. ER modeling
+	ER model components
+	Keys
+	ER-diagrams to tables
+
+4. Integrity constraints
+	Column constraints
+	Table constraints
+	Referential integrity
+	Domain constraints
+	Assertioin
+	
+	Covered in "Constraints in SQL" slides
+
+5. Normalization
+	Functional dependencies
+	BCNF	
+	3NF
+
+6. Physical Database Design
+	Data file organization
+		Heap, sequential, hashing, clustering
+	Indexes
+		Single level: primary, clustering, secondary
+		Bplus tree index
+		hash index
+
+7. Query processing and optimization
+	Evaluation strategies for selections and joins
+	External sorting
+	Query optimization
+		Heuristic vs. cost-based
+		Measures of cost
+		Size estimation
+
+8. The transaction concept
+	ACID
+	Serializability
+		Result and conflict
+	Recoverability
+
+9. Concurrency control
+	Isolation
+	Protocols
+	Deadlocks
+
+10 Recovery
+	Atomicity
+	Durability
+	Logging
+	Recovery algorithms
+	Checkpoints

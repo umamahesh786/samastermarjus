@@ -1,0 +1,66 @@
+package dk.saip;
+
+public component class Peer {
+
+    // Port to local Book database
+    public port books {
+        requires boolean searchBook(String keyword);
+        requires String getBook(String keyword);
+        requires void addBook(String book);
+    }
+
+    // Port to PeerRegistry
+    public port registry {
+        requires void register(server peer);
+        requires server[] getPeers();
+    }
+
+    // Port to Peer acting as a client
+    public port interface client {
+        requires boolean search(String keyword);
+        requires String download(String keyword);
+        requires void upload(String book);
+    }
+
+    // Port to Peer acting as a server
+    public port interface server {
+        requires boolean search(String keyword);
+        provides String download(String keyword);
+        provides void upload(String book);
+    }
+
+
+    // Constructor that performs registration
+    public Peer () {
+        registry.register(this);
+    }
+
+    // Method for retrieving a new book from a Peer in the network
+    // Can be accessed from the User Interface
+    public void getNewBook(String keyword) {
+        server[] peers = registry.getPeers(keyword);
+        for (server peer:peers) {
+            if (peer.search(keyword)) {
+                String book = peer.download(keyword);
+                books.addBook(book);
+                return;
+            }
+        }
+    }
+
+    // Implementation of search
+    public boolean search (String keyword) {
+        return books.searchBook(keyword);
+    }
+
+    // Implementation of download
+    public String download (String keyword) {
+        String book = books.getBook(keyword);
+        return book;
+    }
+
+    // Implementation of upload
+    public void upload (String book) {
+        books.addBook(book);
+    }
+}

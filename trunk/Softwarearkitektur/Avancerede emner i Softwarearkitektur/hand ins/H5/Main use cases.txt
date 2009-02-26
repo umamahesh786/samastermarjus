@@ -1,0 +1,9 @@
+*** Use cases ***
+
+=== Kontroller temperatur ===
+
+Gatewayen samler målinger fra alle termometre og giver radiatorerne besked. Radiatorerne styrer temperaturen udfra de målte temperaturer. 
+
+=== Sæt ønsket temperatur ===
+
+Brugeren logger på systemet via web interfacet med et brugernavn og password, og sætter den ønskede temperatur.  

@@ -1,0 +1,29 @@
+Distribueraði HTML modul við stuðli av implisittum relatiónum.
+
+1. Ger modul, sum, í prinsippinum kan liggja á hvør sínum servara.
+
+2. Modulini skulu kunna vera partur av øðrum síðum via IFrames.
+
+3. Skulu kunna leita í infomassanum á hvørjum moduli via WebServices. 
+
+4. Skal kunna joina uppá implisittar relatiónir, sosum brúkaranavn, bústað, IP osv. 
+
+
+Databasustruktur til
+
+1. Logging av broytingum í records
+
+2. User owned records. Stýra hvussu brúkarar fáa atgongd til einkultar records. 
+
+
+Automatic Code Generation
+1. From C# or Java objects to HTML/XML
+  - krevur at man veit hvat er lyklar, relatiónir vm. Kanska brúka typed dataset. 
+
+Web GUI sum minnir um kommandopromt. Brúkast til tags (on tags)
+
+
+Undo í web-applikatiónum
+- Command pattern
+- Avbjóðandi við fleiri brúkarum
+- Web er stateless, byrjaði sum skjøl, avbjóðandi

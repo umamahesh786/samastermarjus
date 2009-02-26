@@ -1,0 +1,42 @@
+This is DrinkMixer, a mixed drink database for java.
+
+Installation
+------------
+To compile and run DrinkMixer on a unix system do the following:
+
+Edit the makefile and check that the JAVABIN variable is set correctly for your system.
+make classlist
+make
+make run
+
+or if you have the jikes compiler from IBM (http://www10.software.ibm.com/developerworks/opensource/jikes/project/) installed, you can compile DrinkMixer like this:
+
+make jikes
+make run
+
+Javadocs for DrinkMixer can be created with the make javadoc command. They will be placed in the docs directory.
+
+To compile DrinkMixer on windows do the following:
+
+Fix make.bat :)
+make
+make run
+
+None of us use windows for development, so the windows makefile is broken. Fix it please!
+
+How to contribute
+-----------------
+
+DrinkMixer is up on sourceforge.net. You can check out the latest cvs version, report bugs, and discuss DrinkMixer there. If you want to contribute, goto:
+
+http://sourceforge.net/project/?group_id=750
+
+Authors
+-------
+
+The currently active developers for DrinkMixer are Mike Akers (akersmc@clarkson.edu) and Marshall Hayden (haydenml@clarkson.edu). We would be delighted to hear form you if you find DrinkMixer useful.
+
+License
+-------
+
+DrinkMixer is provided under the GNU General Public License (GPL). Basically you can copy, redistribute, and modify it all you want as long as the source code remains avaliable under the same conditions. See the COPYING file for details.
